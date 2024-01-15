@@ -22,7 +22,7 @@ $item->selisihpelayanankasir = $data->selisihpelayanankasir;
 $item->selesai          = $data->selesai;
 $item->selisihkeluarantrian = $data->selisihkeluarantrian;
 
-if ($item->createAntrian()) {
+if ($item->updateAntrian()) {
     echo json_encode(['message' => 'Antrian EDIT successfully.']);
 } else {
     echo json_encode(['message' => 'Antrian could not be created.']);

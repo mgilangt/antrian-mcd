@@ -161,4 +161,15 @@ class Antrian
         $this->min_selisihkeluarantrian = $dataRow['r_min_selisihkeluarantrian'];
         $this->max_selisihkeluarantrian = $dataRow['r_max_selisihkeluarantrian'];
     }
+
+    public function getLatestArrivalTime()
+    {
+        $query = "SELECT waktudatang, awalpelayanan, selesai FROM antrian ORDER BY waktudatang DESC LIMIT 1";
+        $stmt = $this->conn->prepare($query);
+        $stmt->execute();
+
+        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+        // $waktudatang = $row['waktudatang'];
+        return $row;
+    }
 }
